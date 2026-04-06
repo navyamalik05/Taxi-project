@@ -1,0 +1,48 @@
+services:
+  user:
+    build:
+      context: .
+      dockerfile: users/Dockerfile.users
+    container_name: users
+    image: users
+    ports:
+      - "9000:5000"
+    networks:
+      - malikna1
+  availability:
+    build:
+      context: .
+      dockerfile: availability/Dockerfile.availability
+    container_name: availability
+    image: availability
+    ports:
+      - "9001:5000"
+    networks:
+      - malikna1
+  reservations:
+    build:
+      context: .
+      dockerfile: reservations/Dockerfile.reservations
+    container_name: reservations
+    image: reservations
+    ports:
+      - "9002:5000"
+    networks:
+      - malikna1
+  payments:
+    build:
+      context: .
+      dockerfile: payments/Dockerfile.payments
+    container_name: payments
+    image: payments
+    ports:
+      - "9003:5000"
+    networks:
+      - malikna1
+
+networks:
+  malikna1:
+    driver: bridge
+
+
+    
