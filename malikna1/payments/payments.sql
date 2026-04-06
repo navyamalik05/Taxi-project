@@ -1,4 +1,0 @@
-DROP TABLE IF EXISTS users;
-
-CREATE TABLE balances(username TEXT PRIMARY KEY, balance REAL NOT NULL DEFAULT 0.00);
-

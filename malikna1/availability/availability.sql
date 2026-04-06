@@ -1,3 +1,0 @@
-DROP TABLE IF EXISTS listings;
-
-CREATE TABLE listings(listingid INTEGER PRIMARY KEY, Dusername TEXT NOT NULL, day TEXT NOT NULL, price TEXT NOT NULL)
