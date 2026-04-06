@@ -1,0 +1,17 @@
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS pastPswds;
+DROP TABLE IF EXISTS ratings;
+
+
+CREATE TABLE users (userID INTEGER PRIMARY KEY AUTOINCREMENT, first_name TEXT NOT NULL , last_name TEXT NOT NULL, username TEXT UNIQUE NOT NULL, email_address TEXT UNIQUE NOT NULL, driver BOOLEAN NOT NULL, password TEXT NOT NULL, salt TEXT NOT NULL);
+
+CREATE TABLE pastPswds(pswdID INTEGER PRIMARY KEY, userID INTEGER, hashed_pswd TEXT, FOREIGN KEY (userID) REFERENCES users(userID) ON DELETE CASCADE);
+
+CREATE TABLE ratings (
+    ratingID INTEGER PRIMARY KEY AUTOINCREMENT, 
+    rater_username TEXT NOT NULL, 
+    rated_username TEXT NOT NULL, 
+    rating INTEGER NOT NULL,
+    FOREIGN KEY(rater_username) REFERENCES users(username) ON DELETE CASCADE,
+    FOREIGN KEY(rated_username) REFERENCES users(username) ON DELETE CASCADE
+);

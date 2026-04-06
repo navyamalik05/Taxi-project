@@ -1,0 +1,5 @@
+DROP TABLE IF EXISTS reservations;
+
+
+CREATE TABLE reservations (reservationID INTEGER PRIMARY KEY AUTOINCREMENT, listingID INTEGER NOT NULL, Pusername TEXT NOT NULL , Dusername TEXT NOT NULL, price TEXT NOT NULL, day TEXT NOT NULL, status TEXT NOT NULL);
+
